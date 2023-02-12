@@ -1,0 +1,50 @@
+A=1;
+f=2123;
+fs=8000;
+to=0.1;
+
+tt=0:1/fs:to-1/fs;
+s=A*sin(2*pi*f*tt); %generovani sin
+
+Npoints=1000;
+fs = 8000; %vzorkovaci kmitocet
+
+N = 10000;
+n=rand(1,N); %rovnomerne rozdeleni
+un=randn(N, 1); %gaussovske rozdeleni
+
+B = 300; %sirka pasma
+
+a1_abs = exp(-(B*pi)/fs); %abs hodnota koeficient filtru AR
+a = [1, -a1_abs]; %AR
+b = 1; %AR
+
+%MA 1. radu
+a = 1;
+b = [1, -a1_abs];
+
+%AR 2. radu
+p = [0.9*exp(-j*0.9), 0.9*exp(j*0.9)]
+a = poly(p);
+b = 1;
+
+figure(1);
+freqz(b,a ,Npoints,fs)
+
+nc1 = filter(b,a,un); %filtrace sumu = generace barevneho sumu
+
+figure(2)
+subplot(211), plot(un)
+subplot(212), plot(nc1)
+
+wlen = 512;
+figure(3)
+pwelch(nc1,wlen,wlen/2,wlen,fs, 'onesided')%vykonove spektrum pomoci welch
+figure(4)
+plot(10*log10(abs(fft(nc1(1:wlen))).^2/wlen)), xlim([0 wlen/2]) %vykonove spektrum pomoci fft
+
+figure(5)
+spectrogram(nc1, wlen, wlen/2, wlen, fs, 'yaxis')
+
+
+
