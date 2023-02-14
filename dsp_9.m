@@ -1,12 +1,3 @@
-% EXAMPLE OF OLA-GENERAL IMPLEMENTATION 
-%  (without any modification)
-
-addpath H:\VYUKA\DSP\m
-addpath H:\VYUKA\DSP\signaly
-
-% addpath /home/pollak/www/html/vyu/b2m31dsp/m
-% addpath /home/pollak/www/html/vyu/b2m31dsp/signaly
-
 % Loading of clean signal
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
