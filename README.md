@@ -16,7 +16,7 @@ czs_12 - single layer filter bank\
 czs_13 - Hilbert transformation
 
 dsp_1 - parametric modelling of signals\
-dsp_2 - basis of LPC analysis\
+dsp_2 - basics of LPC analysis\
 dsp_3 - estimation of delay and signal cross-correlation\
 dsp_4 - applications of coherence function for noise reduction and delay detection\
 dsp_5 - basics of cepstral analysis\
